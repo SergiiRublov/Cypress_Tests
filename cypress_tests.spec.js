@@ -1,0 +1,56 @@
+describe ('Test for "https://docs.cypress.io/"', function () {
+    it('Visits main page', function () {
+        cy.visit('https://docs.cypress.io/')
+    })
+    it('Click Side menu "Dashboard"', function () {
+        cy.viewport(1920, 1080)
+        cy.xpath('.//div[@data-test="dashboard"]').click()
+    })   
+    it('Check all subcategories and URL in side menu "Dashboard"', function () {
+        cy.viewport(1920, 1080)
+        cy.contains('Introduction')
+        cy.visit('https://docs.cypress.io/guides/dashboard/introduction')
+        cy.contains('Projects')
+        cy.visit('https://docs.cypress.io/guides/dashboard/projects')
+        cy.contains('Runs')
+        cy.visit('https://docs.cypress.io/guides/dashboard/runs')
+        cy.contains('Organizations')
+        cy.visit('https://docs.cypress.io/guides/dashboard/organizations')
+        cy.contains('Users')
+        cy.visit('https://docs.cypress.io/guides/dashboard/users')
+        cy.contains('Bitbucket Integration')
+        cy.visit('https://docs.cypress.io/guides/dashboard/bitbucket-integration')
+        cy.contains('GitHub Integration')
+        cy.visit('https://docs.cypress.io/guides/dashboard/github-integration')
+        cy.contains('GitLab Integration')
+        cy.visit('https://docs.cypress.io/guides/dashboard/gitlab-integration')
+        cy.contains('Jira Integration')
+        cy.visit('https://docs.cypress.io/guides/dashboard/jira-integration')
+        cy.contains('Slack Integration')
+        cy.visit('https://docs.cypress.io/guides/dashboard/slack-integration')
+        cy.contains('Analytics')
+        cy.visit('https://docs.cypress.io/guides/dashboard/analytics')
+        cy.contains('Flaky Test Management')
+        cy.visit('https://docs.cypress.io/guides/dashboard/flaky-test-management')
+        cy.contains('Smart Orchestration')
+        cy.visit('https://docs.cypress.io/guides/dashboard/smart-orchestration')
+        
+    })  
+    it('Find element', function () {
+        cy.contains('Search').click()
+    })
+    it('To write in search field "Dashboard"', function () {
+        cy.get('.DocSearch-Input')
+            .type('Dashboard{enter}')
+    })
+    it('Clear "Search" field', function () {
+        cy.get('.DocSearch-Reset').click()
+    })
+    it('To write in search field next word "Runs"', function () {
+        cy.get('.DocSearch-Input')
+            .type('Runs{enter}')
+    })
+    it('Clear "Search" field', function () {
+        cy.get('.DocSearch-Reset').click()
+    })
+})
